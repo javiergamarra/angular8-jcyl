@@ -6,16 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./solicitud.component.css']
 })
 export class SolicitudComponent implements OnInit {
-
   solicitud = {
     nombre: 'Luis',
     apellidos: 'Fraile'
   };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    setInterval(() => this.solicitud.nombre = '' + Math.random(), 2000);
+    setInterval(() => (this.solicitud.nombre = '' + Math.random()), 2000);
   }
-
 }
