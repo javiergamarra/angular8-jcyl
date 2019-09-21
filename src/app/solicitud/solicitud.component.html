@@ -1,4 +1,32 @@
-<div>
-  {{solicitud.nombre}}
-  {{solicitud.apellidos}}
-</div>
+<section class="section">
+  <div class="container">
+    <h1 class="title">
+      Solicitud de comedor
+    </h1>
+    <p class="subtitle">
+      Nueva solicitud
+    </p>
+    <div class="field">
+      <label class="label">Nombre</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Nombre"
+          value="{{ solicitud.nombre }}"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Apellidos</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Apellidos"
+          value="{{ solicitud.apellidos }}"
+        />
+      </div>
+    </div>
+  </div>
+</section>
