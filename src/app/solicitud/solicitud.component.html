@@ -1,6 +1,6 @@
 <section class="section">
   <div class="container">
-    <h1 class="title">
+    <h1 class="title" [class.has-background-danger]="solicitud.error">
       Solicitud de comedor
     </h1>
     <p class="subtitle">
@@ -10,7 +10,7 @@
       <label class="label">Nombre</label>
       <div class="control">
         <input
-          class="input"
+          [ngClass]="{ 'is-danger': solicitud.error, input: true }"
           type="text"
           placeholder="Nombre"
           value="{{ solicitud.nombre }}"
