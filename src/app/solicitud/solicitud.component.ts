@@ -9,10 +9,14 @@ export class SolicitudComponent implements OnInit {
   solicitud = {
     nombre: 'Luis',
     apellidos: 'Fraile',
-    error: true
+    error: false
   };
 
   constructor() {}
 
   ngOnInit() {}
+
+  enviar() {
+    console.log('Enviado!');
+  }
 }
