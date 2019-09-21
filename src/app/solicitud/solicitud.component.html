@@ -21,7 +21,9 @@
       <label class="label">Apellidos</label>
       <div class="control">
         <input
+          (keyup)="actualizaApellidos($event)"
           class="input"
+          [class.is-danger]="!solicitud.apellidos.length"
           type="text"
           placeholder="Apellidos"
           value="{{ solicitud.apellidos }}"
@@ -30,7 +32,9 @@
     </div>
 
     <div class="control">
-      <button class="button is-primary" (click)="enviar()">Submit</button>
+      <button class="button is-primary" (click)="enviar(solicitud)">
+        Enviar
+      </button>
     </div>
   </div>
 </section>

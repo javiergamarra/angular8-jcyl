@@ -16,7 +16,11 @@ export class SolicitudComponent implements OnInit {
 
   ngOnInit() {}
 
-  enviar() {
-    console.log('Enviado!');
+  enviar(solicitud: any) {
+    console.log(solicitud);
+  }
+
+  actualizaApellidos(e: any) {
+    this.solicitud.apellidos = e.target.value;
   }
 }
