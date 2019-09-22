@@ -72,7 +72,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
   @Input()
-  solicitud = {};
+  solicitud;
 
   @Output()
   solicitudEliminada: EventEmitter<any> = new EventEmitter();
