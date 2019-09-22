@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-solicitud',
@@ -6,21 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./solicitud.component.css']
 })
 export class SolicitudComponent implements OnInit {
-  solicitudes = [
-    {
-      nombre: 'Luis',
-      apellidos: 'Fraile'
-    },
-    {
-      nombre: 'Javier',
-      apellidos: 'Gamarra'
-    }
-  ];
-
-  solicitud = {
-    nombre: 'Luis',
-    apellidos: 'Fraile'
-  };
+  @Input()
+  solicitud;
 
   constructor() {}
 

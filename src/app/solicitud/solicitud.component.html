@@ -1,19 +1,4 @@
 <section class="section">
-  <table class="table is-striped is-hoverable">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let solicitud of solicitudes">
-        <td>{{ solicitud.nombre }}</td>
-        <td>{{ solicitud.apellidos }}</td>
-      </tr>
-    </tbody>
-  </table>
-
   <div class="container">
     <h1 class="title">
       Solicitud de comedor
@@ -25,10 +10,10 @@
       <label class="label">Nombre</label>
       <div class="control">
         <input
-          [ngClass]="{ 'is-danger': solicitud.error, input: true }"
           type="text"
+          class="input"
           placeholder="Nombre"
-          value="{{ solicitud.nombre }}"
+          value="{{ solicitud?.nombre }}"
         />
       </div>
     </div>
@@ -38,13 +23,13 @@
         <input
           (keyup)="actualizaApellidos(apellidos.value)"
           class="input"
-          [class.is-danger]="!solicitud.apellidos.length"
+          [class.is-danger]="!solicitud?.apellidos.length"
           type="text"
           #apellidos
           placeholder="Apellidos"
-          value="{{ solicitud.apellidos }}"
+          value="{{ solicitud?.apellidos }}"
         />
-        <p *ngIf="!solicitud.apellidos.length" class="help is-danger">
+        <p *ngIf="!solicitud?.apellidos.length" class="help is-danger">
           Los apellidos no pueden ser nulos
         </p>
       </div>
