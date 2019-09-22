@@ -20,7 +20,7 @@ export class SolicitudComponent implements OnInit {
     console.log(solicitud);
   }
 
-  actualizaApellidos(e: any) {
-    this.solicitud.apellidos = e.target.value;
+  actualizaApellidos(apellidos) {
+    this.solicitud.apellidos = apellidos;
   }
 }

@@ -21,10 +21,11 @@
       <label class="label">Apellidos</label>
       <div class="control">
         <input
-          (keyup)="actualizaApellidos($event)"
+          (keyup)="actualizaApellidos(apellidos.value)"
           class="input"
           [class.is-danger]="!solicitud.apellidos.length"
           type="text"
+          #apellidos
           placeholder="Apellidos"
           value="{{ solicitud.apellidos }}"
         />
