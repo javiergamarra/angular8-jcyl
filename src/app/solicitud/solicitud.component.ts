@@ -39,7 +39,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
             </p>
           </div>
         </div>
+
         <app-filtro-centro></app-filtro-centro>
+
+        <div class="field">
+          <label class="label">Fecha de nacimiento</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              [value]="solicitud?.nacimiento | date"
+            />
+          </div>
+        </div>
 
         <div class="field is-grouped">
           <div class="control">
@@ -60,7 +72,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
   @Input()
-  solicitud;
+  solicitud = {};
 
   @Output()
   solicitudEliminada: EventEmitter<any> = new EventEmitter();

@@ -35,7 +35,8 @@ export class SolicitudesComponent implements OnInit {
   solicitudes = [
     {
       nombre: 'Luis',
-      apellidos: 'Fraile'
+      apellidos: 'Fraile',
+      nacimiento: new Date()
     },
     {
       nombre: 'Javier',
@@ -50,7 +51,7 @@ export class SolicitudesComponent implements OnInit {
   }
 
   eliminar($event) {
-    this.solicitudes.splice(this.solicitudes.indexOf($event));
+    this.solicitudes.splice(this.solicitudes.indexOf($event), 1);
   }
 
   constructor() {}

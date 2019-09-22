@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-filtro-centro',
   template: `
     <div class="field">
-      <label class="label">Centro</label>
       <div class="control">
+        <label class="label">Centro</label>
         <input
           (keyup)="filtrar(campoCentro.value)"
           class="input"
@@ -27,8 +27,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filtro-centro.component.css']
 })
 export class FiltroCentroComponent implements OnInit {
-  centro: string;
-  centrosFiltrados: string[];
+  centro = '';
+  centrosFiltrados = [];
   centros = ['Fernando de Rojas', 'Agustinas'];
 
   constructor() {}
