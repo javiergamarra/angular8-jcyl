@@ -1,6 +1,21 @@
 <section class="section">
+  <table class="table is-striped is-hoverable">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let solicitud of solicitudes">
+        <td>{{ solicitud.nombre }}</td>
+        <td>{{ solicitud.apellidos }}</td>
+      </tr>
+    </tbody>
+  </table>
+
   <div class="container">
-    <h1 class="title" [class.has-background-danger]="solicitud.error">
+    <h1 class="title">
       Solicitud de comedor
     </h1>
     <p class="subtitle">
