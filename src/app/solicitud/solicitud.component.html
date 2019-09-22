@@ -29,6 +29,9 @@
           placeholder="Apellidos"
           value="{{ solicitud.apellidos }}"
         />
+        <p *ngIf="!solicitud.apellidos.length" class="help is-danger">
+          Los apellidos no pueden ser nulos
+        </p>
       </div>
     </div>
 
