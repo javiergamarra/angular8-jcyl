@@ -24,7 +24,10 @@ import { Component, OnInit } from '@angular/core';
         </table>
       </div>
     </section>
-    <app-solicitud [solicitud]="solicitud"></app-solicitud>
+    <app-solicitud
+      [solicitud]="solicitud"
+      (solicitudEliminada)="eliminar($event)"
+    ></app-solicitud>
   `,
   styleUrls: ['./solicitudes.component.css']
 })
@@ -44,6 +47,10 @@ export class SolicitudesComponent implements OnInit {
 
   seleccionarSolicitud(solicitud) {
     this.solicitud = solicitud;
+  }
+
+  eliminar($event) {
+    this.solicitudes.splice(this.solicitudes.indexOf($event));
   }
 
   constructor() {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-solicitud',
@@ -41,10 +41,17 @@ import { Component, OnInit, Input } from '@angular/core';
         </div>
         <app-filtro-centro></app-filtro-centro>
 
-        <div class="control">
-          <button class="button is-primary" (click)="enviar(solicitud)">
-            Enviar
-          </button>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" (click)="enviar(solicitud)">
+              Enviar
+            </button>
+          </div>
+          <div class="control">
+            <button class="button is-danger" (click)="eliminar()">
+              Eliminar
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -55,9 +62,16 @@ export class SolicitudComponent implements OnInit {
   @Input()
   solicitud;
 
+  @Output()
+  solicitudEliminada: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
 
   ngOnInit() {}
+
+  eliminar() {
+    this.solicitudEliminada.emit(this.solicitud);
+  }
 
   enviar(solicitud: any) {
     console.log(solicitud);

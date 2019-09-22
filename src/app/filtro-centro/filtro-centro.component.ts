@@ -37,7 +37,7 @@ export class FiltroCentroComponent implements OnInit {
 
   filtrar(busqueda: string) {
     this.centrosFiltrados = this.centros.filter(x => {
-      return x.toLowerCase().indexOf(busqueda) !== -1;
+      return x.toLowerCase().indexOf(busqueda.toLowerCase()) !== -1;
     });
   }
 
