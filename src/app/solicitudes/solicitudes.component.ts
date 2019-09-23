@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SolicitudService } from '../solicitud.service';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-solicitudes',
@@ -36,13 +37,17 @@ export class SolicitudesComponent implements OnInit {
 
   seleccionarSolicitud(solicitud) {
     this.solicitud = solicitud;
+    this.router.navigate(['solicitud', solicitud.nombre]);
   }
 
   eliminar($event) {
     this.solicitudes.splice(this.solicitudes.indexOf($event), 1);
   }
 
-  constructor(private solicitudService: SolicitudService) {
+  constructor(
+    private solicitudService: SolicitudService,
+    private router: Router
+  ) {
     of(2).subscribe(x => console.log(x));
   }
 

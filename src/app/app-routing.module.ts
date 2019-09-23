@@ -4,7 +4,7 @@ import { SolicitudComponent } from './solicitud/solicitud.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 
 const routes: Routes = [
-  { path: 'solicitud', component: SolicitudComponent },
+  { path: 'solicitud/:id', component: SolicitudComponent },
   { path: 'solicitudes', component: SolicitudesComponent }
 ];
 

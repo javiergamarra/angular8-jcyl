@@ -1,5 +1,6 @@
 import { SolicitudService } from './../solicitud.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-solicitud',
@@ -78,7 +79,12 @@ export class SolicitudComponent implements OnInit {
   @Output()
   solicitudEliminada: EventEmitter<any> = new EventEmitter();
 
-  constructor(private solicitudService: SolicitudService) {}
+  constructor(
+    private solicitudService: SolicitudService,
+    private route: ActivatedRoute
+  ) {
+    this.route.params.subscribe(x => console.log(x));
+  }
 
   ngOnInit() {}
 
