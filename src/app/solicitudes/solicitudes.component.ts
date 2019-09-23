@@ -33,7 +33,7 @@ import { SolicitudService } from '../solicitud.service';
   styleUrls: ['./solicitudes.component.css']
 })
 export class SolicitudesComponent implements OnInit {
-  solicitudes;
+  solicitudes = [];
 
   solicitud;
 
@@ -48,6 +48,8 @@ export class SolicitudesComponent implements OnInit {
   constructor(private solicitudService: SolicitudService) {}
 
   ngOnInit() {
-    this.solicitudes = this.solicitudService.getSolicitudes();
+   this.solicitudService.getSolicitudes()
+   .then(x => {console.log(x); return x.items.map(y => y.fields);})
+   .then((x:any)=>this.solicitudes = x);
   }
 }
