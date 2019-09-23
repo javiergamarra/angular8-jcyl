@@ -1,3 +1,4 @@
+import { SolicitudService } from './../solicitud.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -72,12 +73,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
   @Input()
-  solicitud;
+  solicitud: any = {};
 
   @Output()
   solicitudEliminada: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor(private solicitudService: SolicitudService) {}
 
   ngOnInit() {}
 
@@ -86,10 +87,13 @@ export class SolicitudComponent implements OnInit {
   }
 
   enviar(solicitud: any) {
-    console.log(solicitud);
+    this.solicitudService.guardar(solicitud);
   }
 
   actualizaApellidos(apellidos: any) {
+    if (!this.solicitud) {
+      this.solicitud = {};
+    }
     this.solicitud.apellidos = apellidos;
   }
 }

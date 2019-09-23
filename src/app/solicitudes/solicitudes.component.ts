@@ -48,8 +48,9 @@ export class SolicitudesComponent implements OnInit {
   constructor(private solicitudService: SolicitudService) {}
 
   ngOnInit() {
-   this.solicitudService.getSolicitudes()
-   .then(x => {console.log(x); return x.items.map(y => y.fields);})
-   .then((x:any)=>this.solicitudes = x);
+    this.solicitudService
+      .getSolicitudes()
+      .then((x: any) => x.items.map(y => y.fields))
+      .then(x => (this.solicitudes = x));
   }
 }
