@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
           </thead>
           <tbody>
             <tr
-              *ngFor="let solicitud of solicitudes"
+              *ngFor="let solicitud of solicitudes$ | async"
               (click)="seleccionarSolicitud(solicitud)"
             >
               <td>{{ solicitud.nombre }}</td>
@@ -43,7 +43,7 @@ export class SolicitudesComponent implements OnInit {
     private solicitudService: SolicitudService,
     private router: Router
   ) {}
-  solicitudes = [];
+  solicitudes$;
 
   solicitud;
 
@@ -55,7 +55,7 @@ export class SolicitudesComponent implements OnInit {
   }
 
   eliminar($event) {
-    this.solicitudes.splice(this.solicitudes.indexOf($event), 1);
+    this.solicitudes$.splice(this.solicitudes$.indexOf($event), 1);
   }
 
   ngOnInit() {
@@ -69,9 +69,8 @@ export class SolicitudesComponent implements OnInit {
       )
       .subscribe(x => console.log(x));
 
-    this.solicitudService
+    this.solicitudes$ = this.solicitudService
       .getSolicitudes()
-      .then((x: any) => x.items.map(y => y.fields))
-      .then(x => (this.solicitudes = x));
+      .then((x: any) => x.items.map(y => y.fields));
   }
 }
