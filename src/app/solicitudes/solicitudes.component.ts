@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SolicitudService } from '../solicitud.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-solicitudes',
@@ -25,10 +26,6 @@ import { SolicitudService } from '../solicitud.service';
         </table>
       </div>
     </section>
-    <app-solicitud
-      [solicitud]="solicitud"
-      (solicitudEliminada)="eliminar($event)"
-    ></app-solicitud>
   `,
   styleUrls: ['./solicitudes.component.css']
 })
@@ -45,7 +42,9 @@ export class SolicitudesComponent implements OnInit {
     this.solicitudes.splice(this.solicitudes.indexOf($event), 1);
   }
 
-  constructor(private solicitudService: SolicitudService) {}
+  constructor(private solicitudService: SolicitudService) {
+    of(2).subscribe(x => console.log(x));
+  }
 
   ngOnInit() {
     this.solicitudService
