@@ -5,7 +5,8 @@ import {
   map,
   filter,
   debounceTime,
-  distinctUntilChanged
+  distinctUntilChanged,
+  switchMap
 } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -63,7 +64,8 @@ export class SolicitudesComponent implements OnInit {
         map((e: any) => e.target.value),
         filter((text: string) => text.length > 2),
         debounceTime(700),
-        distinctUntilChanged()
+        distinctUntilChanged(),
+        switchMap(x => this.solicitudService.getSolicitudes())
       )
       .subscribe(x => console.log(x));
 
