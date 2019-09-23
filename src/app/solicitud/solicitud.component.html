@@ -1,0 +1,37 @@
+<!-- <table>
+  <tr
+    *ngFor="let centro of centros; let par = even; let i = index"
+    [style.background-color]="par ? 'lightgray' : 'white'"
+  >
+    <td>{{ i }}</td>
+    <td>{{ centro.id }}</td>
+    <td>{{ centro.nombre }}</td>
+  </tr>
+</table> -->
+
+<!-- <p>
+  {{ solicitud.nombre }}
+</p>
+<p>
+  {{ solicitud.apellido1 }}
+</p> -->
+
+<input
+  placeholder="Nombre del alumno"
+  #nombre
+  value="{{ solicitud?.nombre }}"
+/>
+
+<input
+  placeholder="Apellidos del alumno"
+  #apellidos
+  value="{{ solicitud?.apellidos }}"
+/>
+
+{{ solicitud?.nombre }}
+
+<button (click)="enviar(nombre.value, apellidos.value)">Enviar</button>
+
+<div *ngIf="solicitudEnviada">
+  Solicitud enviada!
+</div>

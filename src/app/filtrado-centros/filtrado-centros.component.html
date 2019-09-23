@@ -1,0 +1,15 @@
+<input
+  value="{{ centroSeleccionado }}"
+  placeholder="Escribe un centro"
+  (keyup)="filtrar($event.target.value)"
+/>
+<ul>
+  <li
+    *ngFor="let centro of centrosAFiltrar"
+    (click)="seleccionarCentro(centro)"
+  >
+    {{ centro }}
+  </li>
+</ul>
+
+Centro seleccionado: {{ centroSeleccionado }}
