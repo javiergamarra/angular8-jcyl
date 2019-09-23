@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SolicitudService } from '../solicitud.service';
-import { of } from 'rxjs';
+import { fromEvent } from 'rxjs';
+import {
+  map,
+  filter,
+  debounceTime,
+  distinctUntilChanged
+} from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +14,8 @@ import { Router } from '@angular/router';
   template: `
     <section class="section">
       <div class="container">
+        <input #filter />
+
         <table class="table is-striped is-hoverable">
           <thead>
             <tr>
@@ -27,13 +35,18 @@ import { Router } from '@angular/router';
         </table>
       </div>
     </section>
-  `,
-  styleUrls: ['./solicitudes.component.css']
+  `
 })
 export class SolicitudesComponent implements OnInit {
+  constructor(
+    private solicitudService: SolicitudService,
+    private router: Router
+  ) {}
   solicitudes = [];
 
   solicitud;
+
+  @ViewChild('filter', { static: true }) filter: ElementRef;
 
   seleccionarSolicitud(solicitud) {
     this.solicitud = solicitud;
@@ -44,14 +57,16 @@ export class SolicitudesComponent implements OnInit {
     this.solicitudes.splice(this.solicitudes.indexOf($event), 1);
   }
 
-  constructor(
-    private solicitudService: SolicitudService,
-    private router: Router
-  ) {
-    of(2).subscribe(x => console.log(x));
-  }
-
   ngOnInit() {
+    fromEvent(this.filter.nativeElement, 'keyup')
+      .pipe(
+        map((e: any) => e.target.value),
+        filter((text: string) => text.length > 2),
+        debounceTime(700),
+        distinctUntilChanged()
+      )
+      .subscribe(x => console.log(x));
+
     this.solicitudService
       .getSolicitudes()
       .then((x: any) => x.items.map(y => y.fields))

@@ -69,8 +69,7 @@ import { ActivatedRoute } from '@angular/router';
         </div>
       </div>
     </section>
-  `,
-  styleUrls: ['./solicitud.component.css']
+  `
 })
 export class SolicitudComponent implements OnInit {
   @Input()
