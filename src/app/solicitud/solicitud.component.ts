@@ -30,13 +30,13 @@ import { ActivatedRoute } from '@angular/router';
             <input
               (keyup)="actualizaApellidos(apellidos.value)"
               class="input"
-              [class.is-danger]="!solicitud?.apellidos.length"
+              [class.is-danger]="!solicitud?.apellidos?.length"
               type="text"
               #apellidos
               placeholder="Apellidos"
               value="{{ solicitud?.apellidos }}"
             />
-            <p *ngIf="!solicitud?.apellidos.length" class="help is-danger">
+            <p *ngIf="!solicitud?.apellidos?.length" class="help is-danger">
               Los apellidos no pueden ser nulos
             </p>
           </div>
