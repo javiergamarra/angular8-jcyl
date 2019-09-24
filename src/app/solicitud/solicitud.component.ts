@@ -47,11 +47,19 @@ import { ActivatedRoute } from '@angular/router';
         <div class="field">
           <label class="label">Fecha de nacimiento</label>
           <div class="control">
-            <input
-              class="input"
-              type="text"
-              [value]="solicitud?.nacimiento | date"
-            />
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                placeholder="date"
+                (dateInput)="log($event)"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
           </div>
         </div>
 

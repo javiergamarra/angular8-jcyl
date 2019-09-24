@@ -7,10 +7,8 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./cuenta-bancaria.component.css']
 })
 export class CuentaBancariaComponent implements OnInit {
-  ngOnInit() {}
-
   f;
-  entidadControl = new FormControl('', Validators.required);
+  entidadControl = new FormControl('', [Validators.required, this.myValidator]);
   sucursalControl = new FormControl('', Validators.required);
   digitoControlControl = new FormControl('', Validators.required);
 
@@ -22,9 +20,17 @@ export class CuentaBancariaComponent implements OnInit {
     });
   }
 
-  submit() {
-    if (this.digitoControlControl.errors) {
-      console.log(this.digitoControlControl.errors);
+  ngOnInit() {
+    this.entidadControl.valueChanges.subscribe(x => console.log(x));
+  }
+
+  myValidator(control: FormControl) {
+    if (control.value === '0000') {
+      return { invalidName: true };
     }
+  }
+
+  submit() {
+    console.log(this.entidadControl.errors);
   }
 }

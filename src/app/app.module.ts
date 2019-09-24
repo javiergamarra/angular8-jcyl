@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolicitudModule } from './solicitud/solicitud.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, SolicitudesComponent, CuentaBancariaComponent],
@@ -17,7 +18,8 @@ import { SolicitudModule } from './solicitud/solicitud.module';
     HttpClientModule,
     FormsModule,
     SolicitudModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
