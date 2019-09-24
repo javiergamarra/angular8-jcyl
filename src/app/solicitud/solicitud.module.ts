@@ -1,31 +1,16 @@
-import { FormsModule } from '@angular/forms';
 import { SolicitudComponent } from './solicitud.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FiltroCentroComponent } from '../filtro-centro/filtro-centro.component';
-import {
-  MatDatepickerModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatNativeDateModule
-} from '@angular/material';
 import { Routes, RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
-const routes2: Routes = [
+const routes: Routes = [
   { path: '2', component: SolicitudComponent },
   { path: 'new', component: SolicitudComponent }
 ];
 
 @NgModule({
   declarations: [SolicitudComponent, FiltroCentroComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    RouterModule.forChild(routes2)
-  ]
+  imports: [SharedModule, RouterModule.forChild(routes)]
 })
 export class SolicitudModule {}

@@ -15,7 +15,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./solicitud/solicitud.module').then(m => m.SolicitudModule)
   },
-  { path: 'cuentabancaria', component: CuentaBancariaComponent }
+  { path: 'cuentabancaria', component: CuentaBancariaComponent },
+  { path: '*', component: SolicitudesComponent }
 ];
 
 @NgModule({
