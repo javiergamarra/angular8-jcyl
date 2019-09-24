@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { FiltradoCentrosComponent } from './filtrado-centros/filtrado-centros.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,8 @@ import { FiltradoCentrosComponent } from './filtrado-centros/filtrado-centros.co
     SolicitudesComponent,
     FiltradoCentrosComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

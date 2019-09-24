@@ -9,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
           {{ solicitud.nombre }}
         </td>
         <td>{{ solicitud.apellidos }}</td>
+        <td>
+          {{ solicitud.nacimiento | date: 'yyyy' | slice: 1:-2 }}
+        </td>
         <td (click)="seleccionarSolicitud(solicitud)">Editar</td>
+        <td>
+          <a [routerLink]="'/solicitud/' + solicitud.nombre">Solicitud</a>
+        </td>
       </tr>
     </table>
   `,
@@ -17,7 +23,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudesComponent implements OnInit {
   solicitudes = [
-    { nombre: 'Javier', apellidos: 'asds' },
+    { nombre: 'Javier', apellidos: 'asds', nacimiento: new Date() },
     { nombre: 'Jorge', apellidos: '234' }
   ];
   solicitudSeleccionada;

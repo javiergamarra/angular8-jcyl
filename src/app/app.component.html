@@ -1,3 +1,23 @@
-<app-filtrado-centros></app-filtrado-centros>
+<header>
+  HEADER!
 
-<!-- <app-solicitudes></app-solicitudes> -->
+  <p><a [routerLink]="['solicitud', 'new']">Solicitud</a></p>
+  <p><a routerLink="solicitudes">Solicitudes</a></p>
+</header>
+
+<router-outlet></router-outlet>
+
+<input placeholder="Nombre" #nombre />
+<input placeholder="Apellidos" #apellidos />
+<button (click)="enviar(nombre.value, apellidos.value)">Enviar</button>
+
+<ul>
+  <li *ngFor="let solicitud of listadoCentros$ | async">
+    {{ solicitud.nombre }} {{ solicitud.apellidos }}
+  </li>
+</ul>
+<!-- [centros]="listadoCentros" -->
+
+<app-filtrado-centros (centroAEmitir)="mostrar($event)"></app-filtrado-centros>
+
+<app-solicitudes></app-solicitudes>

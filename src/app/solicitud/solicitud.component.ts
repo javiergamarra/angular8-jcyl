@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { pipe } from 'rxjs';
+import { first, last } from 'rxjs/operators';
 
 @Component({
   selector: 'app-solicitud',
@@ -16,12 +19,18 @@ export class SolicitudComponent implements OnInit {
 
   solicitudEnviada;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   enviar(nombre, apellido) {
     console.log('Enviado!', nombre, apellido);
     this.solicitudEnviada = true;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.route.paramMap.subscribe(x => console.log(x));
+    this.route.params
+      .pipe(first())
+      .toPromise()
+      .then(x => console.log(x));
+  }
 }

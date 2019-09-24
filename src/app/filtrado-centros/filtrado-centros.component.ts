@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filtrado-centros',
@@ -17,14 +17,16 @@ import { Component, OnInit } from '@angular/core';
       </li>
     </ul>
 
-    Centro seleccionado: {{ centroSeleccionado }}
+    Centro seleccionado:
+    {{ centroSeleccionado }}
   `,
   styleUrls: ['./filtrado-centros.component.css']
 })
-export class FiltradoCentrosComponent {
-  centros = ['Fernando de Rojas', 'Ponce de León'];
+export class FiltradoCentrosComponent implements OnInit {
+  @Input() centros;
   centrosAFiltrar;
   centroSeleccionado;
+  @Output() centroAEmitir = new EventEmitter();
 
   filtrar(centroAFiltrar) {
     this.centrosAFiltrar = this.centros.filter(
@@ -35,5 +37,11 @@ export class FiltradoCentrosComponent {
 
   seleccionarCentro(centro) {
     this.centroSeleccionado = centro;
+
+    this.centroAEmitir.emit(centro);
   }
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }
