@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th>Documento</th>
+    <th>Nombre</th>
+    <th>Apellido 1</th>
+    <th>Apellido 2</th>
+    <th>Relación</th>
+    <th></th>
+  </tr>
+
+  <tr
+    app-tutor
+    [tutor]="tutor"
+    (nuevoTutor)="nuevoTutor()"
+    *ngFor="let tutor of tutores"
+  ></tr>
+</table>

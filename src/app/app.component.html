@@ -7,7 +7,9 @@
 
 <router-outlet></router-outlet>
 
-<input placeholder="Nombre" #nombre />
+<app-tutores></app-tutores>
+
+<!-- <input placeholder="Nombre" #nombre />
 <input placeholder="Apellidos" #apellidos />
 <button (click)="enviar(nombre.value, apellidos.value)">Enviar</button>
 
@@ -16,8 +18,7 @@
     {{ solicitud.nombre }} {{ solicitud.apellidos }}
   </li>
 </ul>
-<!-- [centros]="listadoCentros" -->
 
 <app-filtrado-centros (centroAEmitir)="mostrar($event)"></app-filtrado-centros>
 
-<app-solicitudes></app-solicitudes>
+<app-solicitudes></app-solicitudes> -->

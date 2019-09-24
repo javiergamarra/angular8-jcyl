@@ -1,0 +1,18 @@
+<td>
+  <select value="{{ tutor.tipoDocumento | uppercase }}">
+    <option value="NIE">NIE</option>
+    <option value="DNI">DNI</option>
+  </select>
+</td>
+<td><input value="{{ tutor.documento }}" /></td>
+<td><input value="{{ tutor.nombre }}" /></td>
+<td><input value="{{ tutor.apellido1 }}" /></td>
+<td><input value="{{ tutor.apellido2 }}" /></td>
+<td>
+  <select value="{{ tutor.relacion | titlecase }}">
+    <option value="Padre">Padre</option>
+    <option value="Madre">Madre</option>
+    <option value="Tutor">Tutor</option>
+  </select>
+</td>
+<td (click)="incluir()">+</td>
