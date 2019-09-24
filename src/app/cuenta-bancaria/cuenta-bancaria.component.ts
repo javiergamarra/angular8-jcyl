@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cuenta-bancaria',
@@ -10,18 +10,21 @@ export class CuentaBancariaComponent implements OnInit {
   ngOnInit() {}
 
   f;
+  entidadControl = new FormControl('', Validators.required);
+  sucursalControl = new FormControl('', Validators.required);
+  digitoControlControl = new FormControl('', Validators.required);
 
   constructor(private formsBuilder: FormBuilder) {
     this.f = formsBuilder.group({
-      Entidad: '',
-      Sucursal: '',
-      DigitoControl: ''
+      entidad: this.entidadControl,
+      sucursal: this.sucursalControl,
+      digitoControl: this.digitoControlControl
     });
   }
 
   submit() {
-    if (this.f.controls.DigitoControl.errors) {
-      console.log(this.f.controls.DigitoControl.errors);
+    if (this.digitoControlControl.errors) {
+      console.log(this.digitoControlControl.errors);
     }
   }
 }

@@ -5,7 +5,7 @@
     required
     name="Entidad"
     maxlength="4"
-    [formControl]="f.controls['Entidad']"
+    [formControl]="entidadControl"
   />
 
   <label>Sucursal</label>
@@ -14,7 +14,7 @@
     required
     name="Sucursal"
     maxlength="4"
-    [formControl]="f.controls['Sucursal']"
+    [formControl]="sucursalControl"
   />
 
   <label>Dígito de control</label>
@@ -23,7 +23,7 @@
     required
     name="digitoControl"
     maxlength="2"
-    [formControl]="f.controls['DigitoControl']"
+    [formControl]="digitoControlControl"
   />
 
   <button (click)="submit()">Enviar</button>
