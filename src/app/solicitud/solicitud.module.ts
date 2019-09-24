@@ -9,6 +9,12 @@ import {
   MatInputModule,
   MatNativeDateModule
 } from '@angular/material';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes2: Routes = [
+  { path: '2', component: SolicitudComponent },
+  { path: 'new', component: SolicitudComponent }
+];
 
 @NgModule({
   declarations: [SolicitudComponent, FiltroCentroComponent],
@@ -18,7 +24,8 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    RouterModule.forChild(routes2)
   ]
 })
 export class SolicitudModule {}
