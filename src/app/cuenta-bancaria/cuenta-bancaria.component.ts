@@ -11,5 +11,9 @@ export class CuentaBancariaComponent implements OnInit {
   ngOnInit() {}
   submit(f) {
     console.log(f);
+
+    if (f.controls.DigitoControl.errors) {
+      console.log(f.controls.DigitoControl.errors);
+    }
   }
 }
