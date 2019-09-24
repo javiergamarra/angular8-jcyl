@@ -20,7 +20,7 @@ import { ActivatedRoute } from '@angular/router';
               type="text"
               class="input"
               placeholder="Nombre"
-              value="{{ solicitud?.nombre }}"
+              [(ngModel)]="solicitud.nombre"
             />
           </div>
         </div>
@@ -92,7 +92,9 @@ export class SolicitudComponent implements OnInit {
   }
 
   enviar(solicitud: any) {
-    this.solicitudService.guardar(solicitud);
+    console.log(this.solicitud);
+
+    // this.solicitudService.guardar(solicitud);
   }
 
   actualizaApellidos(apellidos: any) {
