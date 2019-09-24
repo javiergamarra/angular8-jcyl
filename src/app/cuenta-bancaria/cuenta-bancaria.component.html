@@ -1,6 +1,6 @@
 <form class="ui form" #f="ngForm" (ngSubmit)="submit(f)">
   <label>Entidad</label>
-  <input ngModel name="Entidad" maxlength="4" />
+  <input minlength="4" ngModel name="Entidad" maxlength="4" />
 
   <label>Sucursal</label>
   <input ngModel name="Sucursal" maxlength="4" />
@@ -8,5 +8,5 @@
   <label>Dígito de control</label>
   <input ngModel name="DigitoControl" maxlength="2" />
 
-  <button>Enviar</button>
+  <button [disabled]="!f.valid">Enviar</button>
 </form>
