@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-cuenta-bancaria',
@@ -6,14 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cuenta-bancaria.component.css']
 })
 export class CuentaBancariaComponent implements OnInit {
-  constructor() {}
-
   ngOnInit() {}
-  submit(f) {
-    console.log(f);
 
-    if (f.controls.DigitoControl.errors) {
-      console.log(f.controls.DigitoControl.errors);
+  f;
+
+  constructor(private formsBuilder: FormBuilder) {
+    this.f = formsBuilder.group({
+      Entidad: '',
+      Sucursal: '',
+      DigitoControl: ''
+    });
+  }
+
+  submit() {
+    if (this.f.controls.DigitoControl.errors) {
+      console.log(this.f.controls.DigitoControl.errors);
     }
   }
 }

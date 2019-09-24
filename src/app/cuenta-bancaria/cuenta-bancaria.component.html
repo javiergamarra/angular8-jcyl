@@ -1,12 +1,30 @@
-<form class="ui form" #f="ngForm" (ngSubmit)="submit(f)">
+<form class="ui form" [formGroup]="f">
   <label>Entidad</label>
-  <input minlength="4" required ngModel name="Entidad" maxlength="4" />
+  <input
+    minlength="4"
+    required
+    name="Entidad"
+    maxlength="4"
+    [formControl]="f.controls['Entidad']"
+  />
 
   <label>Sucursal</label>
-  <input minlength="4" required ngModel name="Sucursal" maxlength="4" />
+  <input
+    minlength="4"
+    required
+    name="Sucursal"
+    maxlength="4"
+    [formControl]="f.controls['Sucursal']"
+  />
 
   <label>Dígito de control</label>
-  <input minlength="2" required ngModel name="DigitoControl" maxlength="2" />
+  <input
+    minlength="2"
+    required
+    name="digitoControl"
+    maxlength="2"
+    [formControl]="f.controls['DigitoControl']"
+  />
 
-  <button>Enviar</button>
+  <button (click)="submit()">Enviar</button>
 </form>

@@ -8,7 +8,7 @@ import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { FiltroCentroComponent } from './filtro-centro/filtro-centro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,13 @@ import { FormsModule } from '@angular/forms';
     FiltroCentroComponent,
     CuentaBancariaComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
