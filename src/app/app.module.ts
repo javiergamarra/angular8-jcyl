@@ -7,10 +7,18 @@ import { SolicitudComponent } from './solicitud/solicitud.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { FiltroCentroComponent } from './filtro-centro/filtro-centro.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, SolicitudComponent, SolicitudesComponent, FiltroCentroComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    SolicitudComponent,
+    SolicitudesComponent,
+    FiltroCentroComponent,
+    CuentaBancariaComponent
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

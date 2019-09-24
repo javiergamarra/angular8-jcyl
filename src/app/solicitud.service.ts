@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SolicitudService {
-  accessToken = 'nfqjH0u0eIqJrRwflHtVxloWMjE9QzKdobteEB5pods';
+  accessToken = 'nCzyj1PEG8PWPycjnjhtvOcdE29Bmu3MGph0dk-USps';
 
   guardar(solicitud: any) {
     const accessToken = 'CFPAT-_buDegvY8bJBhvaO59OusOZ1gmTdsVm_anOM-uBv1ho';
@@ -46,7 +46,7 @@ export class SolicitudService {
   getSolicitudes() {
     return this.httpClient
       .get(
-        `https://cdn.contentful.com/spaces/im9x7su136k8/environments/master/entries?access_token=${this.accessToken}`
+        `https://cdn.contentful.com/spaces/im9x7su136k8/environments/master/entries?access_token=${this.accessToken}&content_type=solicitud`
       )
       .toPromise();
   }
