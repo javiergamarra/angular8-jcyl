@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {
   AngularFirestore,
   AngularFirestoreCollection
@@ -39,6 +39,7 @@ export interface Concesionaria {
       </div>
     </div>
   `,
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./concesionaria.component.css']
 })
 export class ConcesionariaComponent implements OnInit {
