@@ -14,18 +14,30 @@ export interface Concesionaria {
 @Component({
   selector: 'app-concesionaria',
   template: `
-    <input [(ngModel)]="concesionaria.nombre" />
-    <input [(ngModel)]="concesionaria.provincia" />
-    <button (click)="crear()">Crear</button>
-
-    <ul>
-      <li *ngFor="let item of items">
-        {{ item.nombre }}, {{ item.provincia }} [<span
-          (click)="eliminar(item.id)"
-          >Eliminar</span
-        >]
-      </li>
-    </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+          <input [(ngModel)]="concesionaria.nombre" />
+        </div>
+        <div class="col-sm-3">
+          <input [(ngModel)]="concesionaria.provincia" />
+        </div>
+        <div class="col-sm-3">
+          <button (click)="crear()">Crear</button>
+        </div>
+        <div class="col-sm-3 offset-sm-2">
+          <ul>
+            <li *ngFor="let item of items">
+              {{ item.nombre }}, {{ item.provincia }} [<span
+                (click)="eliminar(item.id)"
+                >Eliminar</span
+              >]
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   `,
   styleUrls: ['./concesionaria.component.css']
 })
