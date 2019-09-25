@@ -46,7 +46,9 @@ import { Usuario } from './../usuario.service';
 
         <input appDNI />
 
-        <app-filtro-centro></app-filtro-centro>
+        <app-filtro-centro>
+          <h2>Filtro de centro</h2>
+        </app-filtro-centro>
 
         <div class="field">
           <label class="label">Fecha de nacimiento</label>

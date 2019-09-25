@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-filtro-centro',
   template: `
     <div class="field">
+      <ng-content></ng-content>
       <div class="control">
         <label class="label">Centro</label>
         <input
