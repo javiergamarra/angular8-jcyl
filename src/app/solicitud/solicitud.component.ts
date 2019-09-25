@@ -1,3 +1,4 @@
+import { UsuarioService } from './../usuario.service';
 import { SolicitudService } from './../solicitud.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -88,9 +89,12 @@ export class SolicitudComponent implements OnInit {
 
   constructor(
     private solicitudService: SolicitudService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    usuarioService: UsuarioService
   ) {
     this.route.params.subscribe(x => console.log(x));
+
+    usuarioService.getUsuario().subscribe(x => console.log(x));
   }
 
   ngOnInit() {}

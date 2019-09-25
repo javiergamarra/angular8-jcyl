@@ -1,3 +1,4 @@
+import { UsuarioService } from './usuario.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-jcyl';
+
+  constructor(usuarioService: UsuarioService) {
+    usuarioService.getUsuario().subscribe(x => console.log(x));
+  }
 }

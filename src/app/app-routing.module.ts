@@ -1,3 +1,4 @@
+import { UsuarioComponent } from './usuario/usuario.component';
 import { LoginGuard } from './login.guard';
 import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ const routes: Routes = [
       import('./solicitud/solicitud.module').then(m => m.SolicitudModule)
   },
   { path: 'cuentabancaria', component: CuentaBancariaComponent },
+  { path: 'login', component: UsuarioComponent },
   { path: '*', component: SolicitudesComponent }
 ];
 

@@ -7,9 +7,10 @@ import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 @NgModule({
-  declarations: [AppComponent, SolicitudesComponent, CuentaBancariaComponent],
+  declarations: [AppComponent, SolicitudesComponent, CuentaBancariaComponent, UsuarioComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
