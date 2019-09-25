@@ -4,6 +4,7 @@ import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.compo
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
+import { ConcesionariaComponent } from './concesionaria/concesionaria.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       import('./solicitud/solicitud.module').then(m => m.SolicitudModule)
   },
   { path: 'cuentabancaria', component: CuentaBancariaComponent },
+  { path: 'concesionaria', component: ConcesionariaComponent },
   { path: 'login', component: UsuarioComponent },
   { path: '*', component: SolicitudesComponent }
 ];

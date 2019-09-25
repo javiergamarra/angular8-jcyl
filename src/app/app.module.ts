@@ -10,20 +10,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './usuariostore/usuario-store';
+import { ConcesionariaComponent } from './concesionaria/concesionaria.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     SolicitudesComponent,
     CuentaBancariaComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    ConcesionariaComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    StoreModule.forRoot({ user: userReducer })
+    StoreModule.forRoot({ user: userReducer }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
