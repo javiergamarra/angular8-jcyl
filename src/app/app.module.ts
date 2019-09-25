@@ -1,25 +1,42 @@
+import { TutoresModule } from './tutores/tutores.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SolicitudComponent } from './solicitud/solicitud.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
-import { FiltradoCentrosComponent } from './filtrado-centros/filtrado-centros.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TutoresComponent } from './tutores/tutores.component';
-import { TutorComponent } from './tutor/tutor.component';
+import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule
+} from '@angular/material';
+import { FiltradoCentrosComponent } from './filtrado-centros/filtrado-centros.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SolicitudComponent,
-    SolicitudesComponent,
     FiltradoCentrosComponent,
-    TutoresComponent,
-    TutorComponent
+    SolicitudesComponent,
+    CuentaBancariaComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TutoresModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

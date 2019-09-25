@@ -7,27 +7,28 @@ import { HttpClient } from '@angular/common/http';
 export class CentrosService {
   constructor(private httpClient: HttpClient) {}
 
-  getCentros() {
-    const accessToken = 'nfqjH0u0eIqJrRwflHtVxloWMjE9QzKdobteEB5pods';
-    return this.httpClient
-      .get(
-        `https://cdn.contentful.com/spaces/im9x7su136k8/environments/master/entries?access_token=${accessToken}`
-      )
-      .toPromise()
-      .then(x => {
-        console.log(x);
-        return x;
-      })
-      .then(data => {
-        console.log(data);
-        let items = data['items'];
+  getCentros(filtrado) {
+    console.log('Filtrando por ', filtrado);
 
-        let solicitudes = [];
-        for (let item of items) {
-          solicitudes.push(item.fields);
-        }
-        return solicitudes;
-      });
+    const accessToken = 'nCzyj1PEG8PWPycjnjhtvOcdE29Bmu3MGph0dk-USps';
+    return this.httpClient.get(
+      `https://cdn.contentful.com/spaces/im9x7su136k8/environments/master/entries?access_token=${accessToken}`
+    );
+    // .toPromise()
+    // .then(x => {
+    //   console.log(x);
+    //   return x;
+    // })
+    // .then(data => {
+    //   console.log(data);
+    //   let items = data['items'];
+
+    //   let solicitudes = [];
+    //   for (let item of items) {
+    //     solicitudes.push(item.fields);
+    //   }
+    //   return solicitudes;
+    // })
   }
 
   // const promisify = x =>

@@ -2,22 +2,34 @@
   HEADER!
 
   <p><a [routerLink]="['solicitud', 'new']">Solicitud</a></p>
+  <p><a [routerLink]="['solicitud', '0']">Solicitud</a></p>
   <p><a routerLink="solicitudes">Solicitudes</a></p>
+  <p><a routerLink="cuentabancaria">Cuenta Bancaria</a></p>
 </header>
 
 <router-outlet></router-outlet>
 
-<app-tutores></app-tutores>
+<app-filtrado-centros></app-filtrado-centros>
 
-<!-- <input placeholder="Nombre" #nombre />
-<input placeholder="Apellidos" #apellidos />
-<button (click)="enviar(nombre.value, apellidos.value)">Enviar</button>
+<input placeholder="Filtra tus centro" #filtrado />
 
 <ul>
   <li *ngFor="let solicitud of listadoCentros$ | async">
     {{ solicitud.nombre }} {{ solicitud.apellidos }}
   </li>
 </ul>
+
+<app-tutores></app-tutores>
+
+<p *ngFor="let hecho of gatos">
+  {{ hecho.text }}
+</p>
+
+<!-- <input placeholder="Nombre" #nombre />
+<input placeholder="Apellidos" #apellidos />
+<button (click)="enviar(nombre.value, apellidos.value)">Enviar</button>
+
+
 
 <app-filtrado-centros (centroAEmitir)="mostrar($event)"></app-filtrado-centros>
 

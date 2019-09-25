@@ -18,19 +18,21 @@
 
 <input
   placeholder="Nombre del alumno"
-  #nombre
+  [(ngModel)]="solicitud.nombre"
   value="{{ solicitud?.nombre }}"
 />
 
 <input
   placeholder="Apellidos del alumno"
-  #apellidos
-  value="{{ solicitud?.apellidos }}"
+  [(ngModel)]="solicitud.apellido"
+  value="{{ solicitud?.apellido }}"
 />
 
 {{ solicitud?.nombre }}
 
-<button (click)="enviar(nombre.value, apellidos.value)">Enviar</button>
+{{ solicitud?.apellido }}
+
+<button (click)="enviar()">Enviar</button>
 
 <div *ngIf="solicitudEnviada">
   Solicitud enviada!

@@ -1,6 +1,15 @@
+import { GatoService } from './gato.service';
 import { SolicitudService } from './solicitud.service';
 import { CentrosService } from './centros.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { of, fromEvent } from 'rxjs';
+import {
+  map,
+  filter,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +18,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'angular-jcyl';
+
+  @ViewChild('filtrado', { static: true }) filter: ElementRef;
 
   enviar(nombre, apellidos) {
     console.log(nombre, apellidos);
@@ -23,11 +34,33 @@ export class AppComponent {
 
   constructor(
     private servicio: CentrosService,
+    private gatoServicio: GatoService,
     private solicitudServicio: SolicitudService
   ) {}
 
+  gatos;
+
   ngOnInit() {
-    this.listadoCentros$ = this.servicio.getCentros();
+    this.gatoServicio.getHechos().then(data => (this.gatos = data));
+
+    // devuelven promesas
+    // devuelven observables => fuente Rx
+
+    // of(2)
+    //   .pipe(map(x => x * 2))
+    //   .subscribe(x => console.log(x));
+
+    fromEvent(this.filter.nativeElement, 'keyup')
+      .pipe(
+        map((x: any) => x.target.value),
+        filter(x => x.length > 3),
+        debounceTime(700),
+        distinctUntilChanged(),
+        switchMap(filtrado => this.servicio.getCentros(filtrado))
+      )
+      .subscribe(x => console.log(x));
+
+    // this.listadoCentros$ = this.servicio.getCentros();
 
     // for (let centro of this.listadoCentros$) {
     // }

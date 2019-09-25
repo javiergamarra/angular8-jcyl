@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { pipe } from 'rxjs';
 import { first, last } from 'rxjs/operators';
 
 @Component({
@@ -9,7 +8,7 @@ import { first, last } from 'rxjs/operators';
   styleUrls: ['./solicitud.component.css']
 })
 export class SolicitudComponent implements OnInit {
-  @Input() solicitud;
+  @Input() solicitud = {};
 
   centros = [
     { nombre: 'Fernando de Rojas', id: '09008822' },
@@ -19,18 +18,28 @@ export class SolicitudComponent implements OnInit {
 
   solicitudEnviada;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    setInterval(() => (this.solicitud.nombre = Math.random() + ''), 3000);
+  }
 
-  enviar(nombre, apellido) {
-    console.log('Enviado!', nombre, apellido);
+  enviar() {
+    console.log('Enviado!', this.solicitud.nombre, this.solicitud.apellido);
     this.solicitudEnviada = true;
   }
 
   ngOnInit() {
     // this.route.paramMap.subscribe(x => console.log(x));
+    //   let obs = this.route.params;
+    //   obs.subscribe(
+    //     x => console.log('Obs 1', x),
+    //     err => console.log(err),
+    //     () => console.log('Finished!')
+    //   );
+
     this.route.params
       .pipe(first())
       .toPromise()
-      .then(x => console.log(x));
+      .then(x => console.log('Promise', x))
+      .catch(x => console.error(x));
   }
 }
