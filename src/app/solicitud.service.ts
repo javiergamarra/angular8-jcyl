@@ -9,6 +9,7 @@ export class SolicitudService {
 
   guardar(solicitud: any) {
     const accessToken = 'CFPAT-_buDegvY8bJBhvaO59OusOZ1gmTdsVm_anOM-uBv1ho';
+    const spaceId = 'im9x7su136k8';
     return this.httpClient
       .post(
         `https://api.contentful.com/spaces/im9x7su136k8/environments/master/entries?access_token=${accessToken}`,
@@ -31,10 +32,9 @@ export class SolicitudService {
       )
       .toPromise()
       .then((json: any) => {
-        let entryId = json.sys.id;
         return this.httpClient
           .put(
-            `https://api.contentful.com/spaces/im9x7su136k8/environments/master/entries/${entryId}/published?access_token=${accessToken}`,
+            `https://api.contentful.com/spaces/${spaceId}/environments/master/entries/${json.sys.id}/published?access_token=${accessToken}`,
             '',
             { headers: { 'X-Contentful-Version': '1' } }
           )

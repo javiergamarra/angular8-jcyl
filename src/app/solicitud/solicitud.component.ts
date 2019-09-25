@@ -1,9 +1,8 @@
-import { UsuarioService, Usuario } from './../usuario.service';
-import { SolicitudService } from './../solicitud.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
+import { Usuario } from './../usuario.service';
 
 @Component({
   selector: 'app-solicitud',

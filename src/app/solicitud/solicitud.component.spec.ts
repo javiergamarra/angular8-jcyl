@@ -28,7 +28,7 @@ describe('SolicitudComponent', () => {
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(SolicitudComponent);
+    fixture = TestBed.createComponent(SolicitudComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.textContent).toContain('Solicitud de comedor');

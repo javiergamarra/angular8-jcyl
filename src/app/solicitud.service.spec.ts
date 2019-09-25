@@ -17,7 +17,7 @@ describe('SolicitudService', () => {
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    solicitudService = new SolicitudService(<any>httpClientSpy);
+    solicitudService = new SolicitudService(httpClientSpy as any);
     // TestBed.configureTestingModule({ imports: [SharedModule] });
   });
 
