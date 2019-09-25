@@ -14,6 +14,7 @@ import { ConcesionariaComponent } from './concesionaria/concesionaria.component'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+import { DNIDirective } from './dni.directive';
 
 @NgModule({
   declarations: [

@@ -44,6 +44,8 @@ import { Usuario } from './../usuario.service';
           </div>
         </div>
 
+        <input appDNI />
+
         <app-filtro-centro></app-filtro-centro>
 
         <div class="field">
