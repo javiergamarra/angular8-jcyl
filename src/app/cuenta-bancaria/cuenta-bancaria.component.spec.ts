@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CuentaBancariaComponent } from './cuenta-bancaria.component';
+import { SharedModule } from '../shared/shared.module';
 
 describe('CuentaBancariaComponent', () => {
   let component: CuentaBancariaComponent;
@@ -8,9 +9,9 @@ describe('CuentaBancariaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CuentaBancariaComponent ]
-    })
-    .compileComponents();
+      declarations: [CuentaBancariaComponent],
+      imports: [SharedModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

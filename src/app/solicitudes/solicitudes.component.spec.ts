@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SolicitudesComponent } from './solicitudes.component';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 describe('SolicitudesComponent', () => {
   let component: SolicitudesComponent;
@@ -8,9 +10,9 @@ describe('SolicitudesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SolicitudesComponent ]
-    })
-    .compileComponents();
+      declarations: [SolicitudesComponent],
+      imports: [SharedModule, RouterModule.forRoot([])]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
