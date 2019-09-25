@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
 
-class Usuario {
+export class Usuario {
   nombre: string;
 }
 

@@ -1,7 +1,9 @@
-import { UsuarioService } from './../usuario.service';
+import { UsuarioService, Usuario } from './../usuario.service';
 import { SolicitudService } from './../solicitud.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-solicitud',
@@ -87,14 +89,10 @@ export class SolicitudComponent implements OnInit {
   @Output()
   solicitudEliminada: EventEmitter<any> = new EventEmitter();
 
-  constructor(
-    private solicitudService: SolicitudService,
-    private route: ActivatedRoute,
-    usuarioService: UsuarioService
-  ) {
-    this.route.params.subscribe(x => console.log(x));
+  constructor(private route: ActivatedRoute, store: Store<Usuario>) {
+    // this.route.params.subscribe(x => console.log(x));
 
-    usuarioService.getUsuario().subscribe(x => console.log(x));
+    store.pipe(take(1)).subscribe(x => console.log(x));
   }
 
   ngOnInit() {}

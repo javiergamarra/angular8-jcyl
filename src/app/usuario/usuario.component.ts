@@ -1,5 +1,7 @@
-import { UsuarioService } from './../usuario.service';
+import { Usuario } from './../usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { LoginAction } from '../usuariostore/usuario-store';
 
 @Component({
   selector: 'app-usuario',
@@ -12,11 +14,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private store: Store<Usuario>) {}
 
   ngOnInit() {}
 
   login(usuario, password) {
-    this.usuarioService.login(usuario, password);
+    this.store.dispatch(new LoginAction('Jorge'));
   }
 }

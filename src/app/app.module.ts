@@ -8,14 +8,22 @@ import { CuentaBancariaComponent } from './cuenta-bancaria/cuenta-bancaria.compo
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './usuariostore/usuario-store';
 
 @NgModule({
-  declarations: [AppComponent, SolicitudesComponent, CuentaBancariaComponent, UsuarioComponent],
+  declarations: [
+    AppComponent,
+    SolicitudesComponent,
+    CuentaBancariaComponent,
+    UsuarioComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({ user: userReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

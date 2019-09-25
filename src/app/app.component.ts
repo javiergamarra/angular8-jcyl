@@ -1,5 +1,7 @@
-import { UsuarioService } from './usuario.service';
+import { Store } from '@ngrx/store';
+import { Usuario } from './usuario.service';
 import { Component } from '@angular/core';
+import { LogoutAction } from './usuariostore/usuario-store';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-jcyl';
 
-  constructor(usuarioService: UsuarioService) {
-    usuarioService.getUsuario().subscribe(x => console.log(x));
+  constructor(private store: Store<Usuario>) {}
+
+  logout() {
+    this.store.dispatch(new LogoutAction());
   }
 }
