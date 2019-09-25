@@ -8,7 +8,7 @@ import { first, last } from 'rxjs/operators';
   styleUrls: ['./solicitud.component.css']
 })
 export class SolicitudComponent implements OnInit {
-  @Input() solicitud = {};
+  @Input() solicitud = { nombre: '', apellido: '' };
 
   centros = [
     { nombre: 'Fernando de Rojas', id: '09008822' },

@@ -11,6 +11,6 @@ export class GatoService {
     return this.client
       .get('https://cat-fact.herokuapp.com/facts')
       .toPromise()
-      .then(json => json.all);
+      .then(json => json['all']);
   }
 }
