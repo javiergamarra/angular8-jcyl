@@ -96,6 +96,10 @@ export class SolicitudComponent implements OnInit {
 
   ngOnInit() {}
 
+  log($event) {
+    console.log($event);
+  }
+
   eliminar() {
     this.solicitudEliminada.emit(this.solicitud);
   }
