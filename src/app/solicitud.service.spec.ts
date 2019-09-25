@@ -1,13 +1,35 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SolicitudService } from './solicitud.service';
-import { SharedModule } from './shared/shared.module';
+import { defer } from 'rxjs';
+
+export function asyncError<T>(errorObject: any) {
+  return defer(() => Promise.reject(errorObject));
+}
+
+export function asyncData<T>(data: T) {
+  return defer(() => Promise.resolve(data));
+}
 
 describe('SolicitudService', () => {
-  beforeEach(() => TestBed.configureTestingModule({ imports: [SharedModule] }));
+  let httpClientSpy: { get: jasmine.Spy };
+  let solicitudService: SolicitudService;
 
-  it('should be created', () => {
-    const service: SolicitudService = TestBed.get(SolicitudService);
-    expect(service).toBeTruthy();
+  beforeEach(() => {
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    solicitudService = new SolicitudService(<any>httpClientSpy);
+    // TestBed.configureTestingModule({ imports: [SharedModule] });
+  });
+
+  it('should return expected (HttpClient called once)', () => {
+    httpClientSpy.get.and.returnValue(asyncData(['hola']));
+
+    solicitudService
+      .getSolicitudes()
+      .then(
+        solicitud => expect(solicitud).toEqual(['hola'], 'expected grants'),
+        fail
+      );
+    expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 });
